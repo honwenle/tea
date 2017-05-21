@@ -6,11 +6,31 @@ body {
     float: left;
     width: 50%;
 }
-.header,.menu{
-    overflow: hidden
+.header{
+    overflow: hidden;
+    padding: 15px 0;
+    background: #000;
+    color: #fff;
 }
-.logo,.menu,.menu-item{
+.logo,.menu{
     float: left;
+}
+.logo{
+    width: 25%;
+}
+.logo img{
+    width: 35px;
+    display: block;
+    margin: auto;
+}
+.menu{
+    width: 75%;
+    height: 35px;
+    line-height: 35px;
+}
+.menu-item{
+    margin: 0 5px;
+    display: inline-block;
 }
 .pro-item{
     position: relative;
@@ -28,11 +48,13 @@ body {
 }
 .pro-item .title,.pro-item .des {
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     z-index: 2;
+    left: 10%;
 }
 .pro-item .title{
     font-size: 24px;
+    padding-bottom: 30px;
 }
 .pro-item .mask{
     position: absolute;
@@ -46,8 +68,4 @@ body {
 }
 .pro-item:hover .mask{
     background: transparent;
-}
-.header{
-    background: #000;
-    color: #fff;
 }
