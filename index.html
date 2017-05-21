@@ -22,9 +22,11 @@
             <div class="menu" id="menu"></div>
             <script type="text/template" id="tpl_menu">
             <% _.each(list, function(item){ %>
-                <div class="menu-item">
-                    <%= item %>
-                </div>
+                <a href="single.html?id=<%= item.id %>">
+                    <div class="menu-item">
+                        <%= item.title %>
+                    </div>
+                </a>
             <% }); %>
             </script>
         </div>
@@ -45,10 +47,8 @@
     <div class="left"></div>
 </body>
 <script>
-    $.getJSON('./menu.json', function (data) {
-        $('#menu').html(_.template($('#tpl_menu').html())({list: data}));
-    });
     $.getJSON('./data.json', function (data) {
+        $('#menu').html(_.template($('#tpl_menu').html())({list: data}));
         $('#list').html(_.template($('#tpl_list').html())({list: data}));
     });
 </script>
