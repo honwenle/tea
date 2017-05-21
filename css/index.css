@@ -97,3 +97,9 @@ body:after {
     text-align: center;
     padding: 150px 0 50px;
 }
+.diy-menu a,.diy-list a{
+    color: #000;
+}
+.diy-menu a:hover{
+    border-bottom:1px solid #000;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/underscore-min.js"></script>
+    <script src="./js/util.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/diy.css">
+</head>
+<body>
+    <div class="header">
+        <div class="menu" id="menu"></div>
+        <script type="text/template" id="tpl_menu">
+        <span class="red">•</span>
+        <% _.each(list, function(item){ %>
+            <a href="single.html?id=<%= item.id %>">
+                <div class="menu-item">
+                    <%= item.title %>
+                </div>
+            </a>
+        <% }); %>
+        </script>
+        <div class="list" id="list"></div>
+        <script type="text/template" id="tpl_list">
+        <% _.each(list, function(item, i){ %>
+            <% if(item != ''){ %>
+            <a href="<%= item %>">
+                <img src="x<%= id %>/<%= i %>.jpg" alt="">
+            </a>
+            <% }else{ %>
+                <img src="x<%= id %>/<%= i %>.jpg" alt="">
+            <% } %>
+        <% }); %>
+        </script>
+    </div>
+</body>
+<script>
+    var id = util.get('id');
+    $.getJSON('./data.json', function (data) {
+        $('#menu').html(_.template($('#tpl_menu').html())({list: data[1]}));
+        $('.menu-item').eq(id-1).addClass('on');
+    });
+    $.getJSON('x' + id + '/data.json', function (data) {
+        $('#list').html(_.template($('#tpl_list').html())({list: data.list, id: id}));
+        document.title = data.title;
+    });
+</script>
+</html>

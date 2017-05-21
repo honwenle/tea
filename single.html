@@ -8,8 +8,8 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/underscore-min.js"></script>
     <script src="./js/util.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="single.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/single.css">
 </head>
 <body>
     <div class="header">
@@ -72,7 +72,7 @@
     var id = util.get('id');
     $('#img').html(_.template($('#tpl_img').html())({id: id}));
     $.getJSON('./data.json', function (data) {
-        $('#menu').html(_.template($('#tpl_menu').html())({list: data}));
+        $('#menu').html(_.template($('#tpl_menu').html())({list: data[0]}));
         $('.menu-item').eq(id-1).addClass('on');
     });
     $.getJSON(id + '/data.json', function (data) {

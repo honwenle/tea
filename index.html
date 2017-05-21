@@ -8,8 +8,8 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/underscore-min.js"></script>
     <script src="./js/util.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <div class="left">
@@ -45,33 +45,39 @@
         </script>
     </div>
     <div class="left">
-        <div class="diy-menu">
-            <span class="red">•</span>
-            <div class="menu-item">壹克茶</div>
-            <div class="menu-item">九板</div>
-        </div>
-        <div class="diy-list">
+        <div class="diy-menu" id="menu2"></div>
+        <script type="text/template" id="tpl_menu2">
+        <span class="red">•</span>
+        <% _.each(list, function(item){ %>
+            <a href="diy.html?id=<%= item.id %>">
+                <div class="menu-item">
+                    <%= item.title %>
+                </div>
+            </a>
+        <% }); %>
+        </script>
+        <div class="diy-list" id="list2"></div>
+        <script type="text/template" id="tpl_list2">
+        <% _.each(list, function(item, i){ %>
+        <a href="diy.html?id=<%= item.id %>">
             <div class="diy-item">
                 <img src="./images/x0.jpg" alt="">
-                <div class="diy-h1">01 壹克茶</div>
-                <p>我不能复制</p>
-                <p>我不能复制Psd里的文字</p>
-                <p>我不能复制Psd里的文字我不能复制Psd里的文字</p>
+                <div class="diy-h1"><%= (item.id>9 ? '':'0') + item.id %> <%= item.title %></div>
+                <% _.each(item.des, function(item){ %>
+                <p><%= item %></p>
+                <% }); %>
             </div>
-            <div class="diy-item">
-                <img src="./images/x1.jpg" alt="">
-                <div class="diy-h1">02 九板</div>
-                <p>我不能复制</p>
-                <p>我不能复制Psd里的文字</p>
-                <p>我不能复制Psd里的文字我不能复制Psd里的文字</p>
-            </div>
-        </div>
+        </a>
+        <% }); %>
+        </script>
     </div>
 </body>
 <script>
     $.getJSON('./data.json', function (data) {
-        $('#menu').html(_.template($('#tpl_menu').html())({list: data}));
-        $('#list').html(_.template($('#tpl_list').html())({list: data}));
+        $('#menu').html(_.template($('#tpl_menu').html())({list: data[0]}));
+        $('#list').html(_.template($('#tpl_list').html())({list: data[0]}));
+        $('#menu2').html(_.template($('#tpl_menu2').html())({list: data[1]}));
+        $('#list2').html(_.template($('#tpl_list2').html())({list: data[1]}));
     });
 </script>
 </html>

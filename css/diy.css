@@ -1,0 +1,22 @@
+.menu a{
+    color: #000;
+}
+.list img{
+    width: 100%;
+    display: block;
+}
+.red{
+    color: #F30000;
+}
+.menu-item {
+    margin: 0 5px;
+    display: inline-block;
+}
+.menu{
+    text-align: center;
+    padding: 150px 0 50px;
+    border-bottom: 1px solid #000;
+}
+.menu a:hover,.menu-item.on{
+    border-bottom:1px solid #000;
+}
