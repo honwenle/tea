@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/underscore-min.js"></script>
+    <script src="./js/util.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="left">
+        <div class="header">
+            <div class="logo">
+                <img src="./images/logo.png" alt="">
+            </div>
+            <div class="menu" id="menu"></div>
+            <script type="text/template" id="tpl_menu">
+            <% _.each(list, function(item){ %>
+                <div class="menu-item">
+                    <%= item %>
+                </div>
+            <% }); %>
+            </script>
+        </div>
+        <div class="pro" id="list"></div>
+        <script type="text/template" id="tpl_list">
+        <% _.each(list, function(item, i){ %>
+            <a href="single.html?id=<%= item.id %>">
+                <div class="pro-item">
+                    <img src="images/<%= i %>.jpg" alt="">
+                    <div class="title"><%= item.title %></div>
+                    <div class="des"><%= item.des %></div>
+                    <div class="mask"></div>
+                </div>
+            </a>
+        <% }); %>
+        </script>
+    </div>
+    <div class="left"></div>
+</body>
+<script>
+    $.getJSON('./menu.json', function (data) {
+        $('#menu').html(_.template($('#tpl_menu').html())({list: data}));
+    });
+    $.getJSON('./data.json', function (data) {
+        $('#list').html(_.template($('#tpl_list').html())({list: data}));
+    });
+</script>
+</html>
