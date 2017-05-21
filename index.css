@@ -1,5 +1,9 @@
-body {
-    overflow: hidden;
+body:after {
+    content:"";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
 }
 .left {
     float: left;
@@ -30,6 +34,9 @@ body {
 .menu-item{
     margin: 0 5px;
     display: inline-block;
+}
+.menu a:hover{
+    border-bottom: 1px solid #F30000;
 }
 .pro-item{
     position: relative;
@@ -67,4 +74,26 @@ body {
 }
 .pro-item:hover .mask{
     background: transparent;
+}
+.diy-item{
+    text-align: center;
+    line-height: 2;
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+.diy-item img{
+    width: 100%;
+}
+.diy-item p{
+    margin: 0;
+}
+.diy-h1{
+    font-size: 20px;
+}
+.red{
+    color: #F30000;
+}
+.diy-menu{
+    text-align: center;
+    padding: 150px 0 50px;
 }
