@@ -1,0 +1,70 @@
+body {
+    overflow: hidden;
+}
+.left {
+    float: left;
+    width: 50%;
+}
+.header{
+    overflow: hidden;
+    padding: 15px 0;
+    background: #000;
+    color: #fff;
+}
+.logo,.menu{
+    float: left;
+}
+.logo{
+    width: 25%;
+}
+.logo img{
+    width: 35px;
+    display: block;
+    margin: auto;
+}
+.menu{
+    width: 75%;
+    height: 35px;
+    line-height: 35px;
+}
+.menu-item{
+    margin: 0 5px;
+    display: inline-block;
+}
+.pro-item{
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+}
+.pro-item img{
+    width: 100%;
+    display: block;
+    transform: scale(1);
+    transition: all .3s;
+}
+.pro-item:hover img{
+    transform: scale(1.1)
+}
+.pro-item .title,.pro-item .des {
+    position: absolute;
+    bottom: 5%;
+    z-index: 2;
+    left: 10%;
+}
+.pro-item .title{
+    font-size: 24px;
+    padding-bottom: 30px;
+}
+.pro-item .mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+}
+.pro-item:hover .mask{
+    background: transparent;
+}
