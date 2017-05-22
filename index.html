@@ -61,7 +61,7 @@
         <% _.each(list, function(item, i){ %>
         <a href="diy.html?id=<%= item.id %>">
             <div class="diy-item">
-                <img src="./images/x0.jpg" alt="">
+                <img src="./images/x<%= i %>.jpg" alt="">
                 <div class="diy-h1"><%= (item.id>9 ? '':'0') + item.id %> <%= item.title %></div>
                 <% _.each(item.des, function(item){ %>
                 <p><%= item %></p>
