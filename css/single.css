@@ -67,6 +67,7 @@ img{
     background: #fff;
     padding: 45px 30px;
     max-width: 1000px;
+    margin: 0 auto;
 }
 .label {
     font-size: 18px;
